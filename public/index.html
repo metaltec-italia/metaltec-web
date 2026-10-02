@@ -138,6 +138,155 @@ h2{font-size:48px}
 .m-txt p{font-size:17px}
 }
 @media(min-width:1000px) and (max-width:1180px){#lista-prodotti,.sup{grid-template-columns:repeat(2,1fr)}}
+
+/* ===== METALTEC DESIGN V2 ===== */
+:root{
+  --ink-deep:#111820;
+  --steel-light:#d9dee5;
+}
+body{background:#f8f9fa}
+header{
+  box-shadow:0 4px 18px rgba(17,24,32,.07);
+  background:rgba(255,255,255,.97);
+}
+nav a{position:relative}
+nav a::after{
+  content:"";position:absolute;left:0;right:0;bottom:-8px;height:2px;
+  background:var(--blue);transform:scaleX(0);transform-origin:left;
+  transition:transform .2s ease;
+}
+nav a:hover::after{transform:scaleX(1)}
+.hero{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 78% 42%,rgba(0,102,204,.20),transparent 34%),
+    linear-gradient(135deg,#101820 0%,#1c2430 58%,#111820 100%);
+}
+.hero::after{
+  content:"";
+  position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(90deg,rgba(17,24,32,.10),transparent 55%,rgba(17,24,32,.28));
+}
+.hero-in{position:relative;z-index:1}
+.hero h1{letter-spacing:-.025em}
+.hero p{color:#d9e0e8}
+.hero-pics{
+  position:relative;
+  padding:10px 0 10px 10px;
+}
+.hero-pics::before{
+  content:"METALTEC ITALIA";
+  position:absolute;top:-2px;right:0;
+  font:600 11px/1 "Barlow Semi Condensed",sans-serif;
+  letter-spacing:.18em;color:rgba(255,255,255,.42);
+}
+.hero-pics img{
+  border-top:0;
+  border-left:3px solid var(--blue);
+  filter:saturate(.82) contrast(1.05);
+  box-shadow:0 16px 34px rgba(0,0,0,.24);
+}
+.hero-pics img:nth-child(2){border-left-color:#8d99a8}
+.hero-pics img:nth-child(3){border-left-color:#d4d9df}
+.hero-pics img:nth-child(4){border-left-color:var(--blue)}
+.btn{box-shadow:0 7px 18px rgba(0,102,204,.20)}
+.btn.alt{border-color:#aab5c2;color:#fff}
+section{background:#fff}
+section.tint{background:#f1f3f5}
+#prodotti,#servizi,#fornitori{position:relative}
+#prodotti::before,#servizi::before,#fornitori::before{
+  content:"";display:block;width:46px;height:4px;background:var(--blue);
+  margin-bottom:22px;
+}
+.tile,.item,.card{
+  box-shadow:0 8px 26px rgba(17,24,32,.045);
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+}
+.tile:hover,.item:hover,.card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 14px 32px rgba(17,24,32,.10);
+}
+.tile .th{filter:saturate(.88) contrast(1.03)}
+#come{
+  position:relative;
+  overflow:hidden;
+  color:#fff;
+  background:
+    linear-gradient(90deg,rgba(12,18,25,.96) 0%,rgba(12,18,25,.88) 44%,rgba(12,18,25,.64) 100%),
+    url("images/p-rulli-mgm.jpg") center/cover no-repeat;
+}
+#come::before{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(135deg,transparent 0 50%,rgba(0,102,204,.12));
+  pointer-events:none;
+}
+#come .wrap{position:relative;z-index:1}
+#come h2{
+  color:#fff;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  font-size:clamp(28px,4vw,44px);
+}
+#come h2::before{
+  content:"IL NOSTRO METODO";
+  display:block;
+  margin-bottom:16px;
+  color:#79b5ef;
+  font:600 12px/1 "Barlow Semi Condensed",sans-serif;
+  letter-spacing:.22em;
+}
+#come .punch{color:#fff;letter-spacing:-.02em}
+#come .lead{color:#d6dde5}
+#come .steps li{
+  border-top-color:rgba(255,255,255,.28);
+  padding-top:18px;
+}
+#come .steps li::before{
+  color:#79b5ef;
+  font-size:42px;
+  line-height:1;
+  margin-bottom:8px;
+}
+#come .steps b{color:#fff}
+#come .steps li{color:#cbd3dd}
+#contatti{border-top:1px solid #e1e5e9}
+footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(--green) 33%,#fff 33% 66%,var(--red) 66%) 1}
+@media(max-width:999px){
+  .hero{padding:48px 0 42px}
+  .hero-pics{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:9px;
+    margin-top:34px;
+    padding:0;
+  }
+  .hero-pics::before{display:none}
+  .hero-pics img{
+    display:block;
+    width:100%;height:128px;object-fit:cover;
+    transform:none!important;
+    border-left:3px solid var(--blue);
+  }
+  .hero h1{font-size:clamp(40px,11vw,58px)}
+  #come{
+    background-position:center;
+  }
+  #come .wrap{display:block}
+  #come .steps{margin-top:34px}
+  #come .steps li{padding:18px 0 0}
+}
+@media(max-width:700px){
+  .hero-pics img{height:112px}
+  #come .punch{font-size:34px}
+}
+@media(min-width:1000px){
+  .hero-in{min-height:610px}
+  .hero-pics img{height:245px}
+  #come .wrap{grid-template-columns:5fr 6fr;column-gap:96px}
+  #come .steps{gap:36px}
+}
+
 </style>
 </head>
 <body>
@@ -160,28 +309,28 @@ h2{font-size:48px}
     <p id="h-testo"></p>
     <a class="btn" id="h-cta" href="#contatti">Richiedi un'offerta</a><a class="btn alt" href="#fornitori">Scopri i fornitori</a>
   </div>
-  <div class="hero-pics" aria-hidden="true"><img src="images/p-rulli-mgm.jpg" alt=""><img src="images/p-piercing.jpg" alt=""><img src="images/p-hss.jpg" alt=""><img src="images/p-navale.jpg" alt=""></div>
+  <div class="hero-pics" aria-hidden="true"><img src="images/p-laminazione.jpg" alt=""><img src="images/p-rulli-mgm.jpg" alt=""><img src="images/p-hss.jpg" alt=""><img src="images/p-bordatura.jpg" alt=""></div>
 </div></div>
 
 <section id="prodotti"><div class="wrap">
   <h2>Prodotti</h2>
-  <p class="lead">Clicca su un prodotto per vedere foto, dati tecnici e fornitore.</p>
+  <p class="lead">Cilindri, rulli e componenti selezionati in base a impianto, materiale, dimensioni e applicazione.</p>
   <div class="grid" id="lista-prodotti"></div>
 </div></section>
 
 <section id="servizi" class="tint"><div class="wrap">
   <h2>Servizi</h2>
-  <p class="lead">Dalla fusione alla finitura, fino ai controlli di qualità.</p>
+  <p class="lead">Dalla scelta del produttore alla lavorazione e ai controlli: seguiamo ogni fornitura con un unico interlocutore.</p>
   <div class="grid" id="lista-servizi"></div>
 </div></section>
 
 <section id="come"><div class="wrap">
   <h2>Come lavoriamo</h2>
-  <p class="punch">Non siamo un ufficio anonimo. Un algoritmo non stringe la mano.</p>
-  <p class="lead" style="margin:0">Andiamo ovunque nel mondo e chiudiamo gli accordi di persona, come un tempo: conosciamo le fabbriche e le persone che le guidano.</p>
+  <p class="punch">Prima conosciamo il problema. Poi troviamo chi sa produrre la soluzione.</p>
+  <p class="lead" style="margin:0">Conosciamo le fabbriche, le persone e i processi. Quando serve andiamo sul posto: perché per scegliere un produttore non basta confrontare un catalogo.</p>
   <ol class="steps">
     <li><b>Parliamo con te</b>Ascoltiamo il tuo laminatoio, la misura e il materiale che ti serve, di persona quando è possibile.</li>
-    <li><b>Scegliamo il produttore giusto</b>Lavoriamo solo con chi conosciamo. Tecnici metallurgici, chimici e calibratori con oltre 40 anni nella siderurgia ne verificano qualità e affidabilità.</li>
+    <li><b>Scegliamo il produttore giusto</b>Lavoriamo solo con chi conosciamo. Tecnici metallurgici, chimici e calibratori con oltre 40 anni di esperienza verificano qualità, processo produttivo e affidabilità.</li>
     <li><b>Offerta e consegna</b>Ricevi un'offerta chiara e seguiamo la fornitura fino all'arrivo.</li>
   </ol>
 </div></section>
@@ -194,7 +343,7 @@ h2{font-size:48px}
 
 <section id="fornitori"><div class="wrap">
   <h2>Fornitori</h2>
-  <p class="lead">I produttori con cui lavoriamo: cataloghi, referenze e rimando ai loro siti.</p>
+  <p class="lead">Una rete di produttori che conosciamo e che selezioniamo in base alla specifica applicazione.</p>
   <div class="sup" id="lista-fornitori"></div>
 </div></section>
 </main>
@@ -210,8 +359,8 @@ h2{font-size:48px}
    Immagini nella cartella "images", PDF nella cartella "cataloghi". */
 
 const SITO = {
-  titolo: "Cilindri e rulli per laminatoi, dal produttore giusto per ogni misura.",
-  testo: "Forniamo cilindri, rulli e componenti per acciaierie e laminatoi di acciaio e alluminio in Europa e Africa.",
+  titolo: "Cilindri e rulli per laminatoi. Il produttore giusto per ogni applicazione.",
+  testo: "Forniamo cilindri, rulli e componenti per laminatoi di acciaio e alluminio in Europa e Africa, seguendo la fornitura dal produttore alla consegna.",
   nome: "Ariele Baldrati – Sales & Business Developer",
   email: "MetalTec.Italia@gmail.com",
   telefono: "+39 333 6246007",
