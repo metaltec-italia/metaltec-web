@@ -95,6 +95,49 @@ dt{color:var(--muted)}dd{margin:0;font-weight:500}
 @media(max-width:900px){nav{display:none}}
 @media(max-width:700px){.box{grid-template-columns:1fr}.m-img{min-height:180px;max-height:240px}.btn.alt{margin:10px 0 0}dl div{grid-template-columns:7em 1fr}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+.th{display:none}.hero-pics{display:none}
+@media(min-width:1000px){
+body{font-size:18px}
+.wrap{max-width:1280px;padding:0 48px}
+header .wrap{padding-top:14px;padding-bottom:14px}
+header .logo{height:66px}
+nav{gap:34px;font-size:18px}
+.hero{padding:0}
+.hero-in{display:grid;grid-template-columns:6fr 5fr;gap:64px;align-items:center;min-height:560px;padding-top:56px;padding-bottom:56px}
+.hero h1{font-size:clamp(52px,5vw,76px);max-width:14ch}
+.hero p{font-size:21px;max-width:46ch}
+.hero-pics{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.hero-pics img{width:100%;height:230px;object-fit:cover;border-top:4px solid var(--blue);background:#fff}
+.hero-pics img:nth-child(even){transform:translateY(28px)}
+section{padding:96px 0}
+h2{font-size:48px}
+.lead{font-size:19px}
+#lista-prodotti{grid-template-columns:repeat(3,1fr);gap:22px}
+.tile{flex-wrap:wrap;padding:0 22px 20px;border-left:1px solid var(--line);border-top:4px solid var(--blue);overflow:hidden}
+.tile .th{display:block;flex:0 0 calc(100% + 44px);width:calc(100% + 44px);height:170px;object-fit:cover;margin:0 -22px 4px;background:var(--mist)}
+.tile .ico{margin-top:8px}
+.tile h3{font-size:22px;margin-top:8px}
+#lista-servizi{grid-template-columns:repeat(3,1fr);gap:22px}
+.item{padding:22px 24px}
+#come .wrap{display:grid;grid-template-columns:5fr 6fr;column-gap:88px;align-items:start}
+#come .wrap>*:not(.steps){grid-column:1}
+#come .steps{grid-column:2;grid-row:1/span 3;margin:0;grid-template-columns:1fr;gap:30px}
+#come .punch{font-size:44px;max-width:16ch}
+.steps b{font-size:24px}
+#contatti .wrap{display:grid;grid-template-columns:5fr 6fr;column-gap:88px;align-items:start}
+#contatti .wrap>*:not(.contact){grid-column:1}
+#contatti .contact{grid-column:2;grid-row:1/span 2;grid-template-columns:1fr;gap:26px;margin-top:8px}
+#contatti .contact a{font-size:28px}
+.sup{grid-template-columns:repeat(3,1fr);gap:26px}
+.card{padding:30px}
+.box{max-width:1040px;grid-template-columns:1fr 1fr}
+.m-img{min-height:480px}
+.m-txt{padding:40px 40px 34px}
+.m-txt h3{font-size:34px}
+.m-txt p{font-size:17px}
+}
+@media(min-width:1000px) and (max-width:1180px){#lista-prodotti,.sup{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
 <body>
@@ -111,10 +154,13 @@ dt{color:var(--muted)}dd{margin:0;font-weight:500}
 </div></header>
 
 <main>
-<div class="hero"><div class="wrap">
-  <h1 id="h-titolo"></h1>
-  <p id="h-testo"></p>
-  <a class="btn" id="h-cta" href="#contatti">Richiedi un'offerta</a><a class="btn alt" href="#fornitori">Scopri i fornitori</a>
+<div class="hero"><div class="wrap hero-in">
+  <div>
+    <h1 id="h-titolo"></h1>
+    <p id="h-testo"></p>
+    <a class="btn" id="h-cta" href="#contatti">Richiedi un'offerta</a><a class="btn alt" href="#fornitori">Scopri i fornitori</a>
+  </div>
+  <div class="hero-pics" aria-hidden="true"><img src="images/p-rulli-mgm.jpg" alt=""><img src="images/p-piercing.jpg" alt=""><img src="images/p-hss.jpg" alt=""><img src="images/p-navale.jpg" alt=""></div>
 </div></div>
 
 <section id="prodotti"><div class="wrap">
@@ -295,7 +341,7 @@ $("h-cta").href = "mailto:" + SITO.email + "?subject=Richiesta%20offerta";
 $("f-sx").textContent = "© " + new Date().getFullYear() + " MetalTec.Italia"; $("f-dx").textContent = SITO.piva;
 
 PRODOTTI.forEach((p, i) => {
-  const b = el("button", "tile", '<span class="ico">' + svg(p.icona) + '</span><span><h3>' + p.nome + '</h3><p>' + p.breve + '</p><img class="fl notranslate" src="' + F[p.f].logo + '" alt="' + F[p.f].nome + '"></span>');
+  const b = el("button", "tile", '<img class="th" src="' + p.img + '" alt=""><span class="ico">' + svg(p.icona) + '</span><span><h3>' + p.nome + '</h3><p>' + p.breve + '</p><img class="fl notranslate" src="' + F[p.f].logo + '" alt="' + F[p.f].nome + '"></span>');
   b.type = "button"; b.onclick = () => apri(i, b); $("lista-prodotti").append(b);
 });
 SERVIZI.forEach(x => $("lista-servizi").append(el("div", "item", "<h3>" + x.nome + "</h3><p>" + x.testo + "</p>")));
