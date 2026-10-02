@@ -71,7 +71,7 @@ h2{font-size:clamp(28px,4vw,40px);font-weight:700;margin-bottom:12px}
 .tags li{background:var(--mist);color:var(--steel);font-size:13.5px;padding:2px 10px;border-radius:99px}
 .links{margin-top:auto;display:flex;flex-wrap:wrap;gap:8px}
 .links a{border:1px solid var(--blue);padding:7px 14px;border-radius:3px;text-decoration:none;font-weight:500;font-size:15px;display:inline-flex;align-items:center;gap:8px}
-.links a:hover{background:var(--blue);color:#fff}
+.links a:hover{background:var(--blue);color:#fff}.links a[target="_blank"]::after{content:"↗";font-size:13px;opacity:.65}
 .links a img{height:18px;width:auto;max-width:56px;object-fit:contain;background:#fff;border-radius:2px;padding:1px 3px}
 .contact{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
 .contact div{border-top:3px solid var(--steel);padding-top:12px}
@@ -92,7 +92,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
 dl{margin:0 0 18px;font-size:15px;border-top:1px solid var(--line)}
 dl div{display:grid;grid-template-columns:9em 1fr;gap:10px;padding:7px 0;border-bottom:1px solid var(--line)}
 dt{color:var(--muted)}dd{margin:0;font-weight:500}
-@media(max-width:900px){nav{display:none}}
+@media(max-width:900px){header .wrap{flex-wrap:wrap}header .right{flex:1;justify-content:flex-end;min-width:0}nav{display:flex;order:3;width:100%;overflow-x:auto;gap:18px;padding:4px 0 2px;scrollbar-width:none}nav::-webkit-scrollbar{display:none}nav a{white-space:nowrap;font-size:14px}nav a::after{display:none}}
 @media(max-width:700px){.box{grid-template-columns:1fr}.m-img{min-height:180px;max-height:240px}.btn.alt{margin:10px 0 0}dl div{grid-template-columns:7em 1fr}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
@@ -108,7 +108,7 @@ nav{gap:34px;font-size:18px}
 .hero h1{font-size:clamp(52px,5vw,76px);max-width:14ch}
 .hero p{font-size:21px;max-width:46ch}
 .hero-pics{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.hero-pics img{width:100%;height:230px;object-fit:contain;object-position:center;border-top:4px solid var(--blue);background:#fff;padding:8px;box-sizing:border-box}
+.hero-pics img{width:100%;aspect-ratio:16/9;height:auto;object-fit:cover;object-position:center;border-top:4px solid var(--blue);background:#fff;padding:0;box-sizing:border-box}
 .hero-pics img:nth-child(even){transform:translateY(28px)}
 section{padding:96px 0}
 h2{font-size:48px}
@@ -190,7 +190,7 @@ nav a:hover::after{transform:scaleX(1)}
 .hero-pics img:nth-child(2){border-left-color:#8d99a8}
 .hero-pics img:nth-child(3){border-left-color:#d4d9df}
 .hero-pics img:nth-child(4){border-left-color:var(--blue)}
-.btn{box-shadow:0 7px 18px rgba(0,102,204,.20)}
+.btn{box-shadow:none}
 .btn.alt{border-color:#aab5c2;color:#fff}
 section{background:#fff}
 section.tint{background:#f1f3f5}
@@ -214,7 +214,7 @@ section.tint{background:#f1f3f5}
   color:#fff;
   background:
     linear-gradient(90deg,rgba(12,18,25,.96) 0%,rgba(12,18,25,.88) 44%,rgba(12,18,25,.64) 100%),
-    url("images/p-rulli-mgm.jpg") center/cover no-repeat;
+    url("images/p-siderurgia.jpg") center/cover no-repeat;
 }
 #come::before{
   content:"";position:absolute;inset:0;
@@ -277,12 +277,12 @@ footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(-
   #come .steps li{padding:18px 0 0}
 }
 @media(max-width:700px){
-  .hero-pics img{height:112px}
+  .hero-pics img{aspect-ratio:16/9;height:auto}
   #come .punch{font-size:34px}
 }
 @media(min-width:1000px){
   .hero-in{min-height:610px}
-  .hero-pics img{height:245px}
+  .hero-pics img{aspect-ratio:16/9;height:auto}
   #come .wrap{grid-template-columns:5fr 6fr;column-gap:96px}
   #come .steps{gap:36px}
 }
@@ -307,9 +307,9 @@ footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(-
   <div>
     <h1 id="h-titolo"></h1>
     <p id="h-testo"></p>
-    <a class="btn" id="h-cta" href="#prodotti">Vai ai prodotti</a><a class="btn alt" href="#fornitori">Fornitori e cataloghi</a>
+    <a class="btn" id="h-cta" href="#prodotti">Prodotti</a><a class="btn alt" href="#fornitori">Fornitori e cataloghi</a>
   </div>
-  <div class="hero-pics" aria-hidden="true"><img src="images/p-rulli-mgm.jpg" alt=""><img src="images/p-laminazione.jpg" alt=""><img src="images/p-profilati.jpg" alt=""><img src="images/p-ingranaggi.jpg" alt=""></div>
+  <div class="hero-pics" aria-hidden="true"><img src="images/p-centrifugati.jpg" alt=""><img src="images/p-boccole.jpg" alt=""><img src="images/p-ingranaggi.jpg" alt=""><img src="images/p-siderurgia.jpg" alt=""></div>
 </div></div>
 
 <section id="prodotti"><div class="wrap">
@@ -342,8 +342,8 @@ footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(-
 </div></section>
 
 <section id="fornitori"><div class="wrap">
-  <h2>Fornitori</h2>
-  <p class="lead">Una rete di produttori che conosciamo e che selezioniamo in base alla specifica applicazione.</p>
+  <h2>Fornitori e cataloghi</h2>
+  <p class="lead">Aziende con cui collaboriamo, con siti e cataloghi disponibili direttamente dalla pagina.</p>
   <div class="sup" id="lista-fornitori"></div>
 </div></section>
 </main>
@@ -360,7 +360,7 @@ footer{border-top:4px solid transparent;border-image:linear-gradient(90deg,var(-
 
 const SITO = {
   titolo: "Cilindri, rulli e componenti per laminatoi.",
-  testo: "Un punto di contatto tra chi utilizza, chi progetta e chi produce. Prodotti, fornitori e cataloghi a portata di mano, con il supporto di una rete che conosciamo personalmente.",
+  testo: "Prodotti, fornitori e cataloghi per laminatoi e industria siderurgica, raccolti in un unico punto di consultazione.",
   nome: "Ariele Baldrati – Sales & Business Developer",
   email: "MetalTec.Italia@gmail.com",
   telefono: "+39 333 6246007",
@@ -486,7 +486,7 @@ const svg = n => '<svg viewBox="0 0 32 32" aria-hidden="true">' + ICONE[n] + '</
 const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html) e.innerHTML = html; return e; };
 
 $("h-titolo").textContent = SITO.titolo; $("h-testo").textContent = SITO.testo; $("c-nome").textContent = SITO.nome;
-$("h-cta").href = "mailto:" + SITO.email + "?subject=Richiesta%20offerta";
+
 $("f-sx").textContent = "© " + new Date().getFullYear() + " MetalTec.Italia"; $("f-dx").textContent = SITO.piva;
 
 PRODOTTI.forEach((p, i) => {
